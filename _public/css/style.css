@@ -1,0 +1,53 @@
+body {
+    padding-top: 70px;
+    background-color: #E5E9ED;
+    font-family: "Helvetica Neue", Helvetica, "sourcehansans-tc", serif;
+    font-weight: 600;
+}
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.no-padding{
+    padding: 0;
+}
+
+.navbar-simple .brand {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.navbar-simple .navbar-inner {
+    background: #fDD017;
+    filter: none !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.navbar-simple .navbar-inner .nav {
+    float: right;
+}
+.navbar-simple .navbar-inner .nav li a {
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #000000;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 600;
+}
+.navbar-simple .navbar-inner .nav li a:hover {
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #bf3604;
+}
+.navbar-simple .navbar-inner .nav li.active a {
+    color: #bf3604;
+}

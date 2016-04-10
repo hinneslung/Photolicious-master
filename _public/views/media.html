@@ -1,0 +1,104 @@
+<nav-bar delegate="self"></nav-bar>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-image">
+                        <img ng-src="{{ media.image_url }}"/>
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                        </div>
+                        <div class="details">
+                            <p ng-bind-html="media.caption"></p>
+                        </div>
+                        <div class="footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="margin-bottom:24px" ng-show="isMyProduct">
+            <div class="card"><div class="content">
+                <div class="main">
+                    <form name="productForm" ng-submit="productForm.$valid && updateProduct();" novalidate>
+                        <input type="text" class="form-control" placeholder="{{dict.productName}}" ng-model="media.name">
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" class="form-control" aria-label="amount" ng-model="media.price">
+                        </div>
+                    </form>
+                </div>
+                <div class="footer">
+                    <button type="button" class="btn btn-primary btn-md" ng-click="updateProduct();">
+                        {{ dict.updateProduct }}
+                    </button>
+                </div>
+            </div></div>
+        </div>
+        <div class="col-md-4" style="margin-bottom:24px" ng-hide="userIsShop">
+            <div class="card"><div class="content">
+                <div class="main">
+                        <p>
+                            <br>
+                            <button type="button" class="btn btn-primary btn-md" ng-click="buy();" style="width:40%">
+                                {{ dict.buy }}
+                            </button>
+                        </p>
+                    </div>
+                    <div class="footer">
+                        <button type="button" class="btn btn-primary btn-md" ng-click="bookmark();">
+                            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                            {{ bookmarked ? dict.bookmarked : dict.bookmark }}
+                        </button>
+                        <a class="btn btn-default" role="button" ng-click="enquire()">Button</a>
+                    </div>
+            </div></div>
+        </div>
+        <div class="col-md-4">
+            <shop-card shop="media.shop"></shop-card>
+        </div>
+        <div class="col-md-8">
+            <div class="card"><div class="content">
+                <div class="header">
+                    <label>{{dict.review}}</label>
+                </div>
+                <div class="details">
+                    <blockquote ng-repeat="(reviewIndex, review) in reviews">
+                        <p>{{review.content}}</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-1" ng-repeat="(imageIndex, url) in review.image_urls">
+                                    <a href ng-click="openLightboxModal(reviewIndex, imageIndex)">
+                                        <img ng-src="{{url}}?dim=100" class="img-thumbnail">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <footer>{{review.user.username}}&nbsp;&nbsp;&nbsp;{{review.created_time | date}}</footer>
+                    </blockquote>
+                    <blockquote>
+                        <form name="reviewForm" ng-submit="reviewForm.$valid && submitReview();" novalidate>
+                            <div class="form-group">
+                            <textarea ng-model="reviewContent" class="form-control msd-elastic" id="reviewContent"
+                                      rows="1" style="max-width: 100%; resize: none;" placeholder="新增{{dict.review}}" required>
+                            </textarea>
+                            </div>
+                            <div class="dropzone" delegate="self" dropzone="" id="dropzone">
+                                <div class="dz-default dz-message">
+                                    <p style="color:dimgray">
+                                        Drop files here or click to upload
+                                    </p>
+                                </div>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary" ng-disabled="!reviewForm.$valid">{{dict.submitReview}}</button>
+                        </form>
+                    </blockquote>
+                </div>
+            </div></div>
+        </div>
+        <div class="col-md-12" style="height:12px"></div>
+    </div>
+</div>

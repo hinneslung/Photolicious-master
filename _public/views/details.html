@@ -1,0 +1,45 @@
+<div class="container" ng-controller="DetailsController">
+
+    <div class="left">
+        <img id="photo">
+    </div>
+
+    <div class="right">
+        <p id="details">
+    </div>
+
+</div>
+
+<style>
+    img {
+        width: 100%;
+        padding:5px;
+    }
+    body {
+        padding: 40px;
+        background-image:url(../img/bg.jpg);
+        background-size:cover;
+        /*background-repeat: no-repeat;*/
+        color:#E0E0E0;
+        font-family:"League Gothic",sans-serif;font-size:1vw;
+        letter-spacing:1.2px;line-height:40px;margin:0;
+    }
+
+    .container {
+        padding: 20px;
+        background-color:rgba(0,0,0,0.7);
+    }
+    .right {
+        float: right;
+        /*background-color:white;*/
+        width: 40%;
+        padding-left: 36px;
+    }
+    .left {
+        float: left;
+        /* the next props are meant to keep this block independent from the other floated one */
+        width: 60%;
+        top:0
+        /*overflow: hidden;*/
+    }​​
+</style>
